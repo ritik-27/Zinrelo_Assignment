@@ -30,11 +30,16 @@ class AcmeWine:
         with open('valid.csv', 'w') as valid_file:
             writer=csv.writer(valid_file)
             writer.writerow(['order_ids for Valid Orders'])
-            writer.writerows(zip(self.valid_orders))
+            # writer.writerows(zip(self.valid_orders))
+            for order_id in self.valid_orders:
+                writer.writerow([order_id])
+        
         with open('invalid.csv', 'w') as invalid_file:
             writer=csv.writer(invalid_file)
             writer.writerow(['order_ids for Invalid Orders'])
-            writer.writerows(zip(self.invalid_orders))
+            # writer.writerows(zip(self.invalid_orders))
+            for order_id in self.invalid_orders:
+                writer.writerow([order_id])
             
         print("\nAll Orders processed successfully\n")
         print("valid orders count   : ",len(self.valid_orders))
@@ -68,11 +73,13 @@ class User:
         for i in range(len(self.zipcode)-1):
             if abs(int(self.zipcode[i]) - int(self.zipcode[i+1]))==1:
                 return False
+            # this will return false if the zipcode is 11112 or 21357 or 22232 else True otherwise
         return True
     
     # # condition_3
     def is_valid_birthday(self):
         if (self.birthday.weekday()== 0 and self.birthday.day<=7):
+            # weekday()==0 means Monday and day()<=7 means any monday frm date 1 to 7 will be the first monday of month
             return False
         else: 
             return True
@@ -82,6 +89,11 @@ class User:
     def is_valid_age(self):
         today = date.today()
         age = today.year - self.birthday.year - ((today.month, today.day) < (self.birthday.month, self.birthday.day))
+        '''for example if birthday is on 30-09-2000 and current date is 24-07-2023
+            so above expression will look like -
+            age= 2023 - 2000 - ((7,24) < (9,30))
+            age= 23 - (1) = 22
+        '''
         return age>=21
     
     # condition_5
