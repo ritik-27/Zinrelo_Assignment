@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-this is text.txt for testbranch
-
-
-here i m modifiying test file inside    test branch
-=======
 hello there
 
 
  im modifying againnn 
  bye there
->>>>>>> 65aed4c (added bye there)
