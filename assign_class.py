@@ -66,7 +66,7 @@ class User:
     
     # condition_1
     def is_valid_state(self):
-        return self.state not in ['NJ','CT','PA','MA','IL','ID','OR']
+        return (self.state not in ['NJ','CT','PA','MA','IL','ID','OR']) and (self.state in ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
     
     # condition_2
     def is_valid_zipcode(self):
